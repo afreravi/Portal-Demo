@@ -1,0 +1,426 @@
+<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4 profile-banner" style="background-image: url('../../../assets/images/profile-male.jpeg');background-position: right top;">
+    <div class="container py-2">
+      <div class="row align-items-end">
+        <div class="col-lg-7">
+          <h2 class="mb-0"><span>Welcome</span> Parikshit Kathale</h2>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid profile-content">
+  <div class="row">
+        <div class="col-lg-3 py-4 user-info">
+            <nav class="list-group">
+            <a class="list-group-item"><i class="icon-user"></i><span>parikshit.kathale</span></a>
+            <a class="list-group-item"><i class="icon-university"></i><span>Bal Mohan Vidya Mandir</span></a>
+            <a class="list-group-item"><i class="icon-address-card"></i><span>Dr Madhukar B Raut Marg, Dadar West, Shivaji Park, Mumbai, Maharashtra 400028</span></a>
+            <a class="list-group-item"><i class="icon-library_books"></i><span>Class 9th</span></a>
+            </nav>
+            <ul class="list-group py-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Courses Assigned
+                    <span class="badge badge-primary badge-pill">3</span>
+                </li>
+                <li (click)="onStart()" class="list-group-item d-flex justify-content-between align-items-center">
+                    Courses In Progress
+                    <span class="badge badge-warning badge-pill">0</span>
+                </li>
+                <li (click)="onStartTest()" class="list-group-item d-flex justify-content-between align-items-center">
+                    Courses Completed
+                    <span class="badge badge-success badge-pill">0</span>
+                </li>
+            </ul>
+        </div>
+      
+        <div *ngIf="isProfile" class="col-lg-9 py-4">
+            <div class="alert bg-profile" role="alert">
+                Available Courses for you
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/Profile.jpg">
+                            <source class="embed-responsive-item" src="../../../assets/videos/Social Media Cyber Security Awareness For Kids.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="card-body">
+                            <h5 class="card-title">Social Media</h5>
+                            <p class="card-text">Social Media Cyber Security Awareness For Kids.</p>
+                            <div class="d-flex justify-content-between">
+                                <button *ngIf="!isEnroll" name="social-media" [class.disabled]="isStart" type="button" (click)="onEnroll($event)" class="btn btn-profile">Enroll</button>
+                                <button *ngIf="isStart" type="button" (click)="onStart($event)" class="btn btn-success">Start</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/cybersecurityaig.jpg">
+                            <source class="embed-responsive-item" src="../../../assets/videos/Cyber Security Awareness - Think before click - Funny But Serious.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="card-body">
+                            <h5 class="card-title">Cyber Security Awareness</h5>
+                            <p class="card-text">Cyber Security Awareness - Think before click - Funny But Serious</p>
+                            <a href="#" class="btn btn-profile">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/security-protection.jpg">
+                            <source class="embed-responsive-item" src="../../../assets/videos/Social Media Security lessons for kids.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="card-body">
+                            <h5 class="card-title">Social Media</h5>
+                            <p class="card-text">Social Media Security lessons for kids</p>
+                            <a href="#" class="btn btn-profile">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div *ngIf="startCourse" class="col-lg-9 py-4">
+            <div class="jumbotron py-4">
+                <div *ngIf="isFirstVideo">
+                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/Profile.jpg">
+                        <source class="embed-responsive-item" src="../../../assets/videos/Social Media Cyber Security Awareness For Kids.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div *ngIf="!isFirstVideo && isSecondVideo">
+                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/cybersecurityaig.jpg">
+                        <source class="embed-responsive-item" src="../../../assets/videos/Cyber Security Awareness - Think before click - Funny But Serious.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div *ngIf="!isSecondVideo && !isFirstVideo">
+                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/security-protection.jpg">
+                        <source class="embed-responsive-item" src="../../../assets/videos/Social Media Security lessons for kids.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <hr class="my-4">
+                <div class="d-flex flex-direction-row justify-content-between">
+                    <div *ngIf="isFirstVideo" class="course-play-title">
+                        <h5>Social Media</h5>
+                        <p class="lead">Social Media Cyber Security Awareness For Kids.</p>
+                    </div>
+                    <div *ngIf="!isFirstVideo && isSecondVideo" class="course-play-title">
+                        <h5>Cyber Security Awareness</h5>
+                        <p class="lead">Cyber Security Awareness - Think before click - Funny But Serious</p>
+                    </div>
+                    <div *ngIf="!isFirstVideo && !isSecondVideo" class="course-play-title">
+                        <h5>Social Media</h5>
+                        <p class="lead">Social Media Security lessons for kids</p>
+                    </div>
+                    <div class="align-self-center">
+                        <button class="btn btn-profile" (click)="onNextVideo()" [hidden]="!isFirstVideo">Next</button>
+                        <button class="btn btn-profile" (click)="isSecondVideo = !isSecondVideo" [hidden]="isFirstVideo || !isSecondVideo">Next</button>
+                        <!-- <button class="btn btn-info" (click)="isSecondVideo = !isSecondVideo" *ngIf="!isFirstVideo && !isSecondVideo">Mark As Complete</button> -->
+                        <button class="btn " *ngIf="!isFirstVideo && !isSecondVideo" (click)= "onCourseComplete()"  [ngClass] = "[courseComplete ? 'btn-success' : 'btn-profile']">Mark as complete</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="courseComplete" class="alert alert-info text-center take-assessment" role="alert">
+                <h3><a class="assessLink" (click)="onStartTest()">Take Assessment Test</a></h3>
+                <p>You will rewarded with Certificate of Completion after successfully completing the assessment</p>
+            </div>
+        </div>
+        <div *ngIf="courseAssessment" class="col-lg-9 py-4">
+                <div class="jumbotron py-4">
+                    <h1 class="text-center">Assessment Test Instructions</h1>
+                    <p class="lead text-center">Please read the Instructions carefully before starting the assessment</p>
+                    <hr class="my-4">
+                    <ul class="d-flex flex-column align-items-left">
+                        <li>Take test to get certificate.</li>
+                        <li>You need minimum 8 correct answers to pass the exam.</li>
+                        <li>You need to select 1 correct answer from the given options.</li>
+                        <li>Student taking exam who get passing score can receive their certificate.</li>
+                    </ul>
+                    <p class="lead text-center">
+                        <button class="btn btn-primary btn-success" (click)="onTest()" role="button">Start Assessment</button>
+                    </p>
+                </div>
+        </div>
+        <div *ngIf="testPage" class="col-lg-9 py-4 testPage">
+            <form class="row" #quiz="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="col-9 jumbotron bg-light pt-4 mb-0">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="list-q1" role="tabpanel" aria-labelledby="list-q1-list">
+                                <div>
+                                    <h4 class="mb-2">Which of the following is the biggest threat to your computer?</h4>
+                                    <div class="custom-control custom-radio py-2">
+                                        <input type="radio" (click)="enableNextBtn($event)" id="customRadio1" name="customRadio1" class="custom-control-input" required>
+                                        <label class="custom-control-label" for="customRadio1">All of the options</label>
+                                    </div>
+                                    <div class="custom-control custom-radio py-2">
+                                        <input type="radio" (click)="enableNextBtn($event)" id="customRadio2" name="customRadio1" class="custom-control-input" required>
+                                        <label class="custom-control-label" for="customRadio2">Spyware and Adwares</label>
+                                    </div>
+                                    <div class="custom-control custom-radio py-2">
+                                        <input type="radio" (click)="enableNextBtn($event)" id="customRadio3" name="customRadio1" class="custom-control-input" required>
+                                        <label class="custom-control-label" for="customRadio3">Spam Mails</label>
+                                    </div>
+                                    <div class="custom-control custom-radio py-2">
+                                        <input type="radio" (click)="enableNextBtn($event)" id="customRadio4" name="customRadio1" class="custom-control-input" required>
+                                        <label class="custom-control-label" for="customRadio4">None of the above</label>
+                                    </div>
+                                </div>
+                                <div *ngIf="isAttempt.length == 10" class="next-question-content d-flex">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show" id="list-q2" role="tabpanel" aria-labelledby="list-q2-list">
+                                    <div>
+                                        <h4 class="mb-2">Which is the example of Strong Password?</h4>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio5" name="customRadio2" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio5">S3cr3t@!)10</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio6" name="customRadio2" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio6">Your real name, username or company name</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio7" name="customRadio2" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio7">pass@123</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio8" name="customRadio2" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio8">Password</label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isAttempt.length == 10" class="next-question-content d-flex">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                            </div>
+                            <div class="tab-pane fade show" id="list-q3" role="tabpanel" aria-labelledby="list-q3-list">
+                                    <div>
+                                        <h4 class="mb-2">You notice confidential information belonging to our company in a blog or exposed publically, What will you do?</h4>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio9" name="customRadio3" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio9">Inform to ISMS department</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio10" name="customRadio3" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio10">Inform your colleague</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio11" name="customRadio3" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio11">Leave the incident and will watch out for updates</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio12" name="customRadio3" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio12">Inform the blog or the site owner to delete the same</label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isAttempt.length == 10" class="next-question-content d-flex">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                            </div>
+                            <div class="tab-pane fade show" id="list-q4" role="tabpanel" aria-labelledby="list-q4-list">
+                                    <div>
+                                        <h4 class="mb-2">Chandan left home a little early. Reaching home he realizes that important mail has to be sent. He called Nitin, & gave him his username and password and asked him to send the email from his account. Is there something wrong in what Chandan did?</h4>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio13" name="customRadio4" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio13">Password must never be shared</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio14" name="customRadio4" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio14">Nothing Business comes first</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio15" name="customRadio4" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio15">Business comes first, but Chandan should change the password next day</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio16" name="customRadio4" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio16">Chandan should come back to office and send the mail himself</label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isAttempt.length == 10" class="next-question-content d-flex">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                            </div>
+                            <div class="tab-pane fade show" id="list-q5" role="tabpanel" aria-labelledby="list-q5-list">
+                                    <div>
+                                        <h4 class="mb-2">How do you lock your computer from unauthorized access when you leave for a break or lunch?</h4>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio17" name="customRadio5" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio17">I press ctrl + Alt + Del & click on lock or windows + L button combination</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio18" name="customRadio5" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio18">I don't lock it- I trust my co-workers</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio19" name="customRadio5" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio19">I turn off the monitor</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio20" name="customRadio5" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio20">I press enter</label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isAttempt.length == 10" class="next-question-content d-flex">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                            </div>
+                            <div class="tab-pane fade show" id="list-q6" role="tabpanel" aria-labelledby="list-q6-list">
+                                    <div>
+                                        <h4 class="mb-2">Of the following choices, which indicates when it is safe to open a file attached to an e-mail?</h4>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio21" name="customRadio6" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio21">When you know the sender, the attachment is expected, and it is not unusual in any way</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio22" name="customRadio6" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio22">When the e-mail is only sent to you</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio23" name="customRadio6" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio23">When you know the sender</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio24" name="customRadio6" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio24">When the attachment is not an .exe or .com</label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isAttempt.length == 10" class="next-question-content d-flex">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                            </div>
+                            <div class="tab-pane fade show" id="list-q7" role="tabpanel" aria-labelledby="list-q7-list">
+                                    <div>
+                                        <h4 class="mb-2">After receiving an email from an unknown contact that has an attachment, you should?</h4>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio25" name="customRadio7" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio25">Delete the mail without opening it</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio26" name="customRadio7" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio26">Do nothing and keep it in the in-box</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio27" name="customRadio7" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio27">Forward the attachment to your colleagues and friends</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio28" name="customRadio7" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio28">Open the attachment</label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isAttempt.length == 10" class="next-question-content d-flex">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                            </div>
+                            <div class="tab-pane fade show" id="list-q8" role="tabpanel" aria-labelledby="list-q8-list">
+                                    <div>
+                                        <h4 class="mb-2">What are your responsibilities for the protection of company assets?</h4>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio29" name="customRadio8" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio29">All of the options</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio30" name="customRadio8" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio30">Assist with the protection and proper use of information assets</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio31" name="customRadio8" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio31">Know the processes to protect information assets</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio32" name="customRadio8" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio32">Build proper security practices into your day</label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isAttempt.length == 10" class="next-question-content d-flex">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                            </div>
+                            <div class="tab-pane fade show" id="list-q9" role="tabpanel" aria-labelledby="list-q9-list">
+                                    <div>
+                                        <h4 class="mb-2">You are on a crowded elevator and a staff member with whom you need to discuss client information enters the elevator. What should you do?</h4>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio33" name="customRadio9" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio33">Wait until you can get to a private area before discussing the clients information</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio34" name="customRadio9" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio34">Write all of the information on a piece of paper and give it to the staff member</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio35" name="customRadio9" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio35">Whisper the information</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio36" name="customRadio9" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio36">Begin to discuss the information</label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isAttempt.length == 10" class="next-question-content d-flex">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                            </div>
+                            <div class="tab-pane fade show" id="list-q10" role="tabpanel" aria-labelledby="list-q10-list">
+                                    <div>
+                                        <h4 class="mb-2">What is “Phishing”?</h4>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio37" name="customRadio10" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio37">Spoofed" e-mails and fraudulent websites designed to fool recipients into divulging personal financial data such as credit card numbers, account usernames and passwords</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio38" name="customRadio10" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio38">A type of computer virus</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio39" name="customRadio10" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio39">An example of a strong password</label>
+                                        </div>
+                                        <div class="custom-control custom-radio py-2">
+                                            <input type="radio" (click)="enableNextBtn($event)" id="customRadio40" name="customRadio10" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio40">None of the above</label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isAttempt.length == 10" class="next-question-content d-flex">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                            </div>                        
+                        </div>
+                </div>
+                <div class="col-3">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action active" id="list-q1-list" data-toggle="list" href="#list-q1" role="tab" aria-controls="home">Question 1</a>
+                            <a class="list-group-item list-group-item-action" id="list-q2-list" data-toggle="list" href="#list-q2" role="tab" aria-controls="profile">Question 2</a>
+                            <a class="list-group-item list-group-item-action" id="list-q3-list" data-toggle="list" href="#list-q3" role="tab" aria-controls="messages">Question 3</a>
+                            <a class="list-group-item list-group-item-action" id="list-q4-list" data-toggle="list" href="#list-q4" role="tab" aria-controls="settings">Question 4</a>
+                            <a class="list-group-item list-group-item-action" id="list-q5-list" data-toggle="list" href="#list-q5" role="tab" aria-controls="profile">Question 5</a>
+                            <a class="list-group-item list-group-item-action" id="list-q6-list" data-toggle="list" href="#list-q6" role="tab" aria-controls="messages">Question 6</a>
+                            <a class="list-group-item list-group-item-action" id="list-q7-list" data-toggle="list" href="#list-q7" role="tab" aria-controls="settings">Question 7</a>
+                            <a class="list-group-item list-group-item-action" id="list-q8-list" data-toggle="list" href="#list-q8" role="tab" aria-controls="profile">Question 8</a>
+                            <a class="list-group-item list-group-item-action" id="list-q9-list" data-toggle="list" href="#list-q9" role="tab" aria-controls="messages">Question 9</a>
+                            <a class="list-group-item list-group-item-action" id="list-q10-list" data-toggle="list" href="#list-q10" role="tab" aria-controls="settings">Question 10</a>
+                        </div>
+                </div>
+                
+            </form>
+        </div>
+        <div *ngIf="certificatePage"class="col-lg-9 py-4 certificate-page">
+            <div class="jumbotron py-4 d-flex flex-column text-center">
+                <h4 class="text-success">Congratulation! You have successfully passed the Assessment Test</h4>
+                <div class="mt-2 mb-3" style="border-top: 1px solid #cec187;"></div>
+                <img id="pdfCert" #pdfCert src="../../../assets/images/Certificate-Parikshit.jpg" class="img-fluid" alt="Responsive image">            
+                <div class="d-flex justify-content-left mt-4">
+                    <button class="btn btn-profile mr-4" (click)="downloadAsPDF">Download</button>
+                    <button class="btn btn-print mr-4">Print</button>
+                    <button class="btn btn-light" (click)="onBackHome()">Back to home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+<app-footer></app-footer>

@@ -1,0 +1,76 @@
+<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4 profile-banner" style="background-image: url('../../../assets/images/Profile.jpg');background-position: right;">
+    <div class="container py-2">
+      <div class="row align-items-end">
+        <div class="col-lg-7">
+          <h2 class="mb-0"><span>Welcome</span> Neha Vichare</h2>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid profile-content">
+  <div class="row">
+      <div class="col-lg-3 py-4 user-info">
+          <nav class="list-group">
+            <a class="list-group-item"><i class="icon-user"></i><span>neha.v</span></a>
+            <a class="list-group-item"><i class="icon-university"></i><span>Saraswati Secondary School</span></a>
+            <a class="list-group-item"><i class="icon-address-card"></i><span>Bhaskar Colony, Shivaji Nagar, Thane West, Thane, <br/> Maharashtra 400602</span></a>
+            <a class="list-group-item"><i class="icon-library_books"></i><span>Class 7th</span></a>
+          </nav>
+      </div>
+      <div class="col-lg-9 py-4">
+        <div class="alert alert-info" role="alert">
+            Available Courses for you
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/Profile.jpg">
+                        <source class="embed-responsive-item" src="../../../assets/videos/Social Media Cyber Security Awareness For Kids.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Social Media</h5>
+                        <p class="card-text">Social Media Cyber Security Awareness For Kids.</p>
+                        <div class="d-flex justify-content-between">
+                            <button *ngIf="!isEnroll" name="social-media" [class.disabled]="isStart" type="button" (click)="onEnroll($event)" class="btn login-btn">Enroll</button>
+                            <button *ngIf="isStart" type="button" (click)="onStart($event)" class="btn btn-success">Start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/cybersecurityaig.jpg">
+                        <source class="embed-responsive-item" src="../../../assets/videos/Cyber Security Awareness - Think before click - Funny But Serious.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Cyber Security Awareness</h5>
+                        <p class="card-text">Cyber Security Awareness - Think before click - Funny But Serious</p>
+                        <div class="d-flex justify-content-between">
+                            <button type="button"  class="btn login-btn">Enroll</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/security-protection.jpg">
+                        <source class="embed-responsive-item" src="../../../assets/videos/Social Media Security lessons for kids.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Social Media</h5>
+                        <p class="card-text">Social Media Security lessons for kids</p>
+                        <div class="d-flex justify-content-between">
+                            <button type="button"  class="btn login-btn">Enroll</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>  
+<app-footer></app-footer>

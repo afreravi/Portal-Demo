@@ -1,0 +1,18 @@
+/* .img-banner + .img-loader{
+    display: none;    
+}
+.img-banner {
+    margin-top: 5rem;
+} */
+
+
+.banner-wrapper {
+    margin-top: 5rem;
+    background: url(../../../assets/images/landing-img1.jpg);
+    background-size: cover;
+    height: 79vh
+}
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}

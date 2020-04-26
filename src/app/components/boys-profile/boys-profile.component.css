@@ -1,0 +1,83 @@
+.profile-banner{
+    font-family: 'Roboto', sans-serif;
+}
+.profile-banner h2{
+    font-weight: 300;
+}
+.profile-content{
+    font-family: 'Roboto', sans-serif;
+}
+.profile-content .btn-profile.btn.disabled{
+    visibility: hidden;
+}
+
+.user-info .list-group-item{
+    display: flex;
+    align-items: baseline;
+    color: #003348;
+    background: rgba(33, 187, 251, 0.2);
+}
+.user-info .list-group-item i{
+    font-size: 17px;
+    padding-right: 10px;
+}
+.assessLink{
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+.take-assessment{
+    background: url("../../../assets/images/take-Assesment-test_banner.jpg");
+    color: #fff;
+}
+.testPage .list-group-item{
+    padding: .50rem 1.25rem;
+    
+}
+.testPage .list-group-item.active {
+    background-color: #21bbfb;
+    border-color: #21bbfb;
+}
+.testPage .next-question-content{
+    position: absolute;
+    bottom: 13px;
+    right: 23px;
+}
+.testPage .custom-radio .custom-control-input:checked~.custom-control-label::after{
+    background-color: #fe9730;
+    border-radius: 50%;
+    border: 1px solid #FFB74D;
+}
+.testPage .custom-radio .custom-control-input:checked~.custom-control-label::before{
+    background-color: #fe9730;
+}
+.testPage .custom-control-input:focus~.custom-control-label::before{
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(254, 151, 48, .3);
+}
+::ng-deep .notif-fail{
+    background: #e8962f !important;
+}
+.btn-profile{
+    color: #fff;
+    background: #21bbfb;
+}
+.btn-profile:hover{
+    color: #fff;
+    background: #003348;
+}
+.bg-profile{
+    background: rgba(33, 187, 251, 0.2);
+    color: #003348;
+}
+.course-play-title{
+    color: #003348;
+}
+.btn-print{
+    background: #fe9730;
+    border-color: #fe9730;
+    color: #fff;
+}
+.btn-print:hover{
+    background: #fdab59;
+    color: white;
+    border-color: #fdab59;
+}
