@@ -9,12 +9,12 @@ private loginSuccess$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(t
 
 public setLoginSuccess(flag:boolean) :void{
   this.loginSuccess$.next(flag)
-  console.log(this.loginSuccess$.next(flag));
+  // console.log(this.loginSuccess$.next(flag));
 }
 
 public getLoginSuccess(): Observable<boolean>{
   return this.loginSuccess$.asObservable();
-  console.log(this.loginSuccess$)
+  // console.log(this.loginSuccess$)
 }
    constructor() {}
 }

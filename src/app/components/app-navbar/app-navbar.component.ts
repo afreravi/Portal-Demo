@@ -8,15 +8,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app-navbar.component.css']
 })
 export class AppNavbarComponent implements OnInit, OnDestroy {
-  private isLoggedIn:boolean;
-  private getLoginSuccessSubscription: Subscription;
+  isLoggedIn:boolean;
+  getLoginSuccessSubscription: Subscription;
+  isMobileMenu: boolean;
   
   constructor(private userDetails: UsersDetailsService) { }
 
   ngOnInit() {
     this.getLoginSuccessSubscription = this.userDetails.getLoginSuccess()
     .subscribe((isLoggedIn) => this.isLoggedIn = isLoggedIn)
-    console.log(this.isLoggedIn);
   }
 
   ngOnDestroy(){

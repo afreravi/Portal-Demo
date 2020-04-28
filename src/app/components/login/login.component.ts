@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
     // this.userLogin = this.userDetails.loginSuccess  
 
     this.userDetails.setLoginSuccess(this.userLogin)
-    console.log(this.userDetails.setLoginSuccess(this.userLogin));
-  
+    // console.log(this.userDetails.setLoginSuccess(this.userLogin));
+
   }
 
   // loggedIn(){

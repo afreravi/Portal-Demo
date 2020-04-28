@@ -33,7 +33,7 @@
                         <h5 class="card-title">Social Media</h5>
                         <p class="card-text">Social Media Cyber Security Awareness For Kids.</p>
                         <div class="d-flex justify-content-between">
-                            <button *ngIf="!isEnroll" name="social-media" [class.disabled]="isStart" type="button" (click)="onEnroll($event)" class="btn login-btn">Enroll</button>
+                            <button *ngIf="!isEnrolled" name="social-media" [class.disabled]="isStart" type="button" (click)="onEnroll($event)" class="btn login-btn">Enroll</button>
                             <button *ngIf="isStart" type="button" (click)="onStart($event)" class="btn btn-success">Start</button>
                         </div>
                     </div>

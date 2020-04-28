@@ -22,11 +22,11 @@
                     Courses Assigned
                     <span class="badge badge-primary badge-pill">3</span>
                 </li>
-                <li (click)="onStart()" class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
                     Courses In Progress
                     <span class="badge badge-warning badge-pill">0</span>
                 </li>
-                <li (click)="onStartTest()" class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
                     Courses Completed
                     <span class="badge badge-success badge-pill">0</span>
                 </li>
@@ -48,7 +48,7 @@
                             <h5 class="card-title">Social Media</h5>
                             <p class="card-text">Social Media Cyber Security Awareness For Kids.</p>
                             <div class="d-flex justify-content-between">
-                                <button *ngIf="!isEnroll" name="social-media" [class.disabled]="isStart" type="button" (click)="onEnroll($event)" class="btn btn-profile">Enroll</button>
+                                <button *ngIf="isEnrolled" name="social-media" [class.disabled]="isStart" type="button" (click)="onEnroll($event)" class="btn btn-profile">Enroll</button>
                                 <button *ngIf="isStart" type="button" (click)="onStart($event)" class="btn btn-success">Start</button>
                             </div>
                         </div>
@@ -86,19 +86,19 @@
         <div *ngIf="startCourse" class="col-lg-9 py-4">
             <div class="jumbotron py-4">
                 <div *ngIf="isFirstVideo">
-                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/Profile.jpg">
+                    <video class="embed-responsive embed-responsive-16by9" controls disablePictureInPicture poster="../../../assets/images/Profile.jpg" controlsList="nodownload">
                         <source class="embed-responsive-item" src="../../../assets/videos/Social Media Cyber Security Awareness For Kids.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div *ngIf="!isFirstVideo && isSecondVideo">
-                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/cybersecurityaig.jpg">
+                    <video class="embed-responsive embed-responsive-16by9" controls disablePictureInPicture poster="../../../assets/images/cybersecurityaig.jpg" controlsList="nodownload">
                         <source class="embed-responsive-item" src="../../../assets/videos/Cyber Security Awareness - Think before click - Funny But Serious.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div *ngIf="!isSecondVideo && !isFirstVideo">
-                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/security-protection.jpg">
+                    <video class="embed-responsive embed-responsive-16by9" controls disablePictureInPicture poster="../../../assets/images/security-protection.jpg" controlsList="nodownload">
                         <source class="embed-responsive-item" src="../../../assets/videos/Social Media Security lessons for kids.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -147,7 +147,7 @@
                 </div>
         </div>
         <div *ngIf="testPage" class="col-lg-9 py-4 testPage">
-            <form class="row" #quiz="ngForm" (ngSubmit)="onSubmit(f)">
+            <form class="row" #quiz="ngForm" (ngSubmit)="onSubmit()">
                 <div class="col-9 jumbotron bg-light pt-4 mb-0">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="list-q1" role="tabpanel" aria-labelledby="list-q1-list">
@@ -415,7 +415,7 @@
                 <div class="mt-2 mb-3" style="border-top: 1px solid #cec187;"></div>
                 <img id="pdfCert" #pdfCert src="../../../assets/images/Certificate-Parikshit.jpg" class="img-fluid" alt="Responsive image">            
                 <div class="d-flex justify-content-left mt-4">
-                    <button class="btn btn-profile mr-4" (click)="downloadAsPDF">Download</button>
+                    <button class="btn btn-profile mr-4">Download</button>
                     <button class="btn btn-print mr-4">Print</button>
                     <button class="btn btn-light" (click)="onBackHome()">Back to home</button>
                 </div>

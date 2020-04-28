@@ -84,11 +84,6 @@ export class BoysProfileComponent implements OnInit {
         ]
       }
     );
-    console.log(this.quiz)
-
-    console.log(this.isAttempt)
-
-    
   }
 
   
@@ -132,12 +127,10 @@ export class BoysProfileComponent implements OnInit {
   enableNextBtn(e){
     if(e.target.checked){
       this.isAttempt.push(e.target.name)
-      console.log(e.target.name)
       this.selectedAns.push(e.target.id)
-      console.log(e.target.id)
     }
   }
-  onSubmit(f:NgForm){
+  onSubmit(){
     this.isPassed = (this.selectedAns.length == this.correctAns.length) && this.selectedAns.every((element, index) => {
       return element === this.correctAns[index]; 
   });
@@ -152,7 +145,7 @@ export class BoysProfileComponent implements OnInit {
         });
     
         dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
+          // console.log('The dialog was closed');
         }); 
         setTimeout(() => {
           this.certificatePage =false;
