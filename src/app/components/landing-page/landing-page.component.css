@@ -10,9 +10,27 @@
     margin-top: 5rem;
     background: url(../../../assets/images/landing-page-image.png);
     background-size: cover;
-    height: 79vh
+    height: 87vh;
 }
 .col-centered {
     float: none;
     margin: 0 auto;
 }
+
+/* Responsive media queries for mobile, tablets, desktop and large screens*/
+
+@media only screen and (min-width:0px) and (max-width: 590px){
+    .banner-wrapper{
+        background-size: cover;
+        height: 100vh;
+        background-position-x: 94%;
+        margin-top: 4rem;
+    }
+}
+@media only screen and (min-width:591px) and (max-width: 767px){
+    .banner-wrapper{background-position-x: -10%;}
+}
+@media only screen and (min-width:768px) and (max-width: 992px){
+    .banner-wrapper{background-position-x: -5%;}
+}
+

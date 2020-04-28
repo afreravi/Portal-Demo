@@ -1,9 +1,13 @@
 /* Base */
+html, body { height: 100%; }
 body {
     line-height: 1.7;
     color: gray;
     font-weight: 300;
     font-size: 1.1rem; 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    letter-spacing: 0.5px;
   }
   
   ::-moz-selection {
@@ -278,7 +282,7 @@ body {
           display: inline-block;
           text-decoration: none !important; }
           .site-navbar .site-navigation .site-menu > li > a:hover {
-            color: #fe9730; }
+            color: #fe9730;}
       .site-navbar .site-navigation .site-menu .has-children {
         position: relative; }
         .site-navbar .site-navigation .site-menu .has-children > a {
@@ -374,11 +378,10 @@ body {
         color: #000; }
   
   .site-mobile-menu {
-    width: 300px;
+    width: 249px;
     position: fixed;
     right: 0;
     z-index: 2000;
-    padding-top: 20px;
     background: #fff;
     height: calc(100vh);
     -webkit-transform: translateX(110%);
@@ -652,8 +655,7 @@ body {
       .news-updates .section-heading h2,  .blog-section h2{
         font-size: 27px;
         font-weight: 600;
-        margin-bottom: 0;
-        line-height: 0; }
+        margin-bottom: 0;}
       .news-updates .section-heading a {
         font-size: 16px; }
     .news-updates .post-entry-big .img-link {
@@ -1108,6 +1110,11 @@ body {
   .bg-main a{
     color: #fff;
   }
+  .bg-main a:hover{
+    color: #003348;
+    transition: 0.9s all;
+    text-decoration: none;
+  }
   .text-theme{
     color: #003348;  
   }
@@ -1119,8 +1126,6 @@ body {
       color: #21bbfb;
   }
   .intro-section{
-      /* height: 445px;
-      min-height: auto; */
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -1205,16 +1210,48 @@ body {
   .app-text-color{
     color: #21bbfb;
   }
+
+  .site-menu.mobile-menu{
+    padding-left: 0;
+  }
+
+  .site-menu.mobile-menu li{
+    list-style-type: none;
+  }
+  .site-menu.mobile-menu li a{
+    color: #003348;
+  }
+  .site-menu.mobile-menu li a:hover{
+    color:  #fe9730;
+    letter-spacing: 1px;
+  }
   
-  /* @font-face {font-family:'Sakal Marathi';
-    src: url('../fonts/SakalMarathi-Normal.eot');
-    src: url('../fonts/SakalMarathi-Normal.woff') format('woff'),
-         format('svg'); font-weight: normal; font-style: normal;}
   
-  .mr-font{
-    font-family:'Sakal Marathi';font-size: 0.9em;font-weight: 300;font-style: normal;line-height:20px;-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: 100%;
-  } */
-  
-  
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  @media only screen and (min-width:0px) and (max-width: 410px){
+      .main-logo{
+          width: 89%;
+      }
+      .social-container{
+          width: 74%;
+          text-align: right;
+      }
+      .social-wrap a{
+          width: 30px;
+          height: 30px;
+      }
+      .footer .img-fluid {width: 190px;}
+
+      .course-container{
+        flex-direction: column !important;
+      }
+  }
+
+  @media only screen and (min-width: 992px) and (max-width: 1199px){
+    .site-navbar .site-navigation .site-menu > li > a{
+      padding: 10px
+    }
+  }
+
+  @media only screen and (min-width: 0px) and (max-width: 767px){
+    footer img {width: 190px;}
+  }

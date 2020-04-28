@@ -68,6 +68,11 @@
     background: rgba(33, 187, 251, 0.2);
     color: #003348;
 }
+.course-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .course-play-title{
     color: #003348;
 }
