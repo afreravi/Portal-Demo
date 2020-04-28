@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 export class AppNavbarComponent implements OnInit, OnDestroy {
   private isLoggedIn:boolean;
   private getLoginSuccessSubscription: Subscription;
-
+  
   constructor(private userDetails: UsersDetailsService) { }
 
   ngOnInit() {
