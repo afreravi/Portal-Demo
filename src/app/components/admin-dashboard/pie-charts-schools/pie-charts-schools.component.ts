@@ -4,18 +4,17 @@ import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
-  selector: 'app-pie-charts',
-  templateUrl: './pie-charts.component.html',
-  styleUrls: ['./pie-charts.component.css']
+  selector: 'app-pie-charts-schools',
+  templateUrl: './pie-charts-schools.component.html',
+  styleUrls: ['./pie-charts-schools.component.css']
 })
-export class PieChartsComponent implements OnInit {
+export class PieChartsSchoolsComponent implements OnInit {
   // Pie
   public pieChartOptions: ChartOptions = {
     responsive: true,
     legend: {
       position: 'bottom',
     },
-    
     plugins: {
       datalabels: {
         formatter: (value, ctx) => {
@@ -25,22 +24,22 @@ export class PieChartsComponent implements OnInit {
       },
     }
   };
-  public pieChartLabels: Label[] = [['Enrolled'], ['Not-Enrolled']];
-  public pieChartData: number[] = [2345, 3155];
+  public pieChartLabels: Label[] = [['Compliant'], ['Not-Compliant']];
+  public pieChartData: number[] = [46, 64];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [pluginDataLabels];
   public pieChartColors = [
     {
-      backgroundColor: ['#8c55ef', '#0ad2df'],
+      backgroundColor: ['#d137ed', '#09d3e1'],
     },
   ];
+
 
   constructor() { }
 
   ngOnInit() {
   }
-
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);

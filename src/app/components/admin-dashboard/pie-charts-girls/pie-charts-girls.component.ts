@@ -4,43 +4,42 @@ import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
-  selector: 'app-pie-charts',
-  templateUrl: './pie-charts.component.html',
-  styleUrls: ['./pie-charts.component.css']
+  selector: 'app-pie-charts-girls',
+  templateUrl: './pie-charts-girls.component.html',
+  styleUrls: ['./pie-charts-girls.component.css']
 })
-export class PieChartsComponent implements OnInit {
-  // Pie
-  public pieChartOptions: ChartOptions = {
-    responsive: true,
-    legend: {
-      position: 'bottom',
-    },
-    
-    plugins: {
-      datalabels: {
-        formatter: (value, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
-          return label;
-        },
+export class PieChartsGirlsComponent implements OnInit {
+// Pie
+public pieChartOptions: ChartOptions = {
+  responsive: true,
+  legend: {
+    position: 'bottom',
+  },
+  plugins: {
+    datalabels: {
+      formatter: (value, ctx) => {
+        const label = ctx.chart.data.labels[ctx.dataIndex];
+        return label;
       },
-    }
-  };
-  public pieChartLabels: Label[] = [['Enrolled'], ['Not-Enrolled']];
-  public pieChartData: number[] = [2345, 3155];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
-  public pieChartPlugins = [pluginDataLabels];
-  public pieChartColors = [
-    {
-      backgroundColor: ['#8c55ef', '#0ad2df'],
     },
-  ];
+  }
+};
+public pieChartLabels: Label[] = [['Enrolled'], ['Not-Enrolled']];
+public pieChartData: number[] = [2137, 2363];
+public pieChartType: ChartType = 'pie';
+public pieChartLegend = true;
+public pieChartPlugins = [pluginDataLabels];
+public pieChartColors = [
+  {
+    backgroundColor: ['#8c55ef', '#0ad2df'],
+  },
+];
+
 
   constructor() { }
 
   ngOnInit() {
   }
-
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);

@@ -61,7 +61,7 @@
     box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(254, 151, 48, .3);
 }
 ::ng-deep .testPage .mat-horizontal-content-container{
-    padding: 25px 24px 24px 24px !important;
+    padding: 20px 24px 24px 24px !important;
 }
 ::ng-deep .notif-fail{
     background: #e8962f !important;
