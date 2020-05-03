@@ -27,7 +27,7 @@
                 <a [routerLink]="['home']" class="nav-link text-left">Contact</a>
               </li>
             <li>
-              <a href="https://cybercrime.gov.in/Default.aspx" target="_blank" class="nav-link text-left">Report Incident</a>
+              <a href="https://www.reportphishing.in/about-us.php" target="_blank" class="nav-link text-left">Report Incident</a>
             </li>
           </ul>
         </nav>
@@ -42,8 +42,8 @@
           <a href="#" class="mr-3"><span class="icon-envelope-o mr-2"></span> info@mydomain.com</a> 
         </div>
         <div class="col-lg-4 text-right"> 
-          <a [routerLink] ="['login']" class="mr-3"><span class="icon-lock" style="vertical-align: middle;"></span> 
-            {{ !isLoggedIn ? 'Log In' : 'Log out' }}
+          <a class="mr-3" (click)="toogleLogin()" style="cursor:pointer;"><span class="icon-lock" style="vertical-align: middle;"></span> 
+            {{ isLoggedIn ? 'Log out' : 'Log In' }}
           </a>
           <button [routerLink] ="['register']" class="btn login-btn px-3 py-1" style="font-size: 15px;"><span class="icon-user"></span> Register</button>
           <a href="#" class="mx-2 d-none d-lg-inline-block"><span class="small mr-font">मराठी</span></a>
@@ -81,7 +81,7 @@
                   <a [routerLink]="['home']" class="nav-link text-left">Contact</a>
                 </li>
                 <li>
-                  <a href="https://cybercrime.gov.in/Default.aspx" target="_blank" class="nav-link text-left">Report Incident</a>
+                  <a href="https://www.reportphishing.in/" target="_blank" class="nav-link text-left">Report Incident</a>
                 </li>
             </ul>
           </nav>

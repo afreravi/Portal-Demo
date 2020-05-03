@@ -19,7 +19,7 @@ export class AppHomeComponent implements AfterContentInit {
       autoplay:true,
       autoplayTimeout:4000,
       autoplayHoverPause:true,
-      stagePadding:30,
+      stagePadding:0,
       smartSpeed:450
     });
   }

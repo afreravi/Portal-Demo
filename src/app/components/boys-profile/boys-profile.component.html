@@ -19,15 +19,15 @@
             </nav>
             <ul class="list-group py-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Courses Assigned
+                    Training Assigned
                     <span class="badge badge-primary badge-pill">3</span>
                 </li>
-                <li (click)="onStart()" class="list-group-item d-flex justify-content-between align-items-center">
-                    Courses In Progress
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Training In Progress
                     <span class="badge badge-warning badge-pill">0</span>
                 </li>
-                <li (click)="onStartTest()" class="list-group-item d-flex justify-content-between align-items-center">
-                    Courses Completed
+                <li class="list-group-item d-flex justify-content-between align-items-center" (click)="onTest()">
+                    Training Completed
                     <span class="badge badge-success badge-pill">0</span>
                 </li>
             </ul>
@@ -37,9 +37,9 @@
             <div class="alert bg-profile" role="alert">
                 Available Courses for you
             </div>
-            <div class="row">
+            <div class="row training-cards">
                 <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <video class="embed-responsive embed-responsive-16by9" controls disablePictureInPicture poster="../../../assets/images/Profile.jpg" controlsList="nodownload">
                             <source class="embed-responsive-item" src="../../../assets/videos/Social Media Cyber Security Awareness For Kids.mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -48,14 +48,14 @@
                             <h5 class="card-title">Social Media</h5>
                             <p class="card-text">Social Media Cyber Security Awareness For Kids.</p>
                             <div class="d-flex justify-content-between">
-                                <button *ngIf="!isEnroll" name="social-media" [class.disabled]="isStart" type="button" (click)="onEnroll($event)" class="btn btn-profile">Enroll</button>
+                                <button *ngIf="isEnrolled" name="social-media" [class.disabled]="isStart" type="button" (click)="onEnroll($event)" class="btn btn-profile">Enroll</button>
                                 <button *ngIf="isStart" type="button" (click)="onStart($event)" class="btn btn-success">Start</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <video class="embed-responsive embed-responsive-16by9" controls disablePictureInPicture poster="../../../assets/images/cybersecurityaig.jpg" controlsList="nodownload">
                             <source class="embed-responsive-item" src="../../../assets/videos/Cyber Security Awareness - Think before click - Funny But Serious.mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <video class="embed-responsive embed-responsive-16by9" controls disablePictureInPicture poster="../../../assets/images/security-protection.jpg" controlsList="nodownload">
                             <source class="embed-responsive-item" src="../../../assets/videos/Social Media Security lessons for kids.mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -86,19 +86,19 @@
         <div *ngIf="startCourse" class="col-lg-9 py-4">
             <div class="jumbotron py-4">
                 <div *ngIf="isFirstVideo">
-                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/Profile.jpg">
+                    <video class="embed-responsive embed-responsive-16by9" controls disablePictureInPicture poster="../../../assets/images/Profile.jpg" controlsList="nodownload">
                         <source class="embed-responsive-item" src="../../../assets/videos/Social Media Cyber Security Awareness For Kids.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div *ngIf="!isFirstVideo && isSecondVideo">
-                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/cybersecurityaig.jpg">
+                    <video class="embed-responsive embed-responsive-16by9" controls disablePictureInPicture poster="../../../assets/images/cybersecurityaig.jpg" controlsList="nodownload">
                         <source class="embed-responsive-item" src="../../../assets/videos/Cyber Security Awareness - Think before click - Funny But Serious.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
                 <div *ngIf="!isSecondVideo && !isFirstVideo">
-                    <video class="embed-responsive embed-responsive-16by9" controls poster="../../../assets/images/security-protection.jpg">
+                    <video class="embed-responsive embed-responsive-16by9" controls disablePictureInPicture poster="../../../assets/images/security-protection.jpg" controlsList="nodownload">
                         <source class="embed-responsive-item" src="../../../assets/videos/Social Media Security lessons for kids.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -147,7 +147,7 @@
                 </div>
         </div>
         <div *ngIf="testPage" class="col-lg-9 py-4 testPage">
-            <form class="row" #quiz="ngForm" (ngSubmit)="onSubmit(f)">
+            <!-- <form class="row" #quiz="ngForm" (ngSubmit)="onSubmit()">
                 <div class="col-9 jumbotron bg-light pt-4 mb-0">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="list-q1" role="tabpanel" aria-labelledby="list-q1-list">
@@ -407,20 +407,61 @@
                         </div>
                 </div>
                 
+            </form> -->
+            <form [formGroup]="form">
+                <mat-horizontal-stepper [@.disabled] = "true">
+                    <mat-step *ngFor="let qns of questions; let i = index; let last = last" matStepperIcon="edit" matStepperIcon="done">
+                        <ng-template matStepLabel></ng-template>
+                        <ng-container>
+                                <label id="quiz-radio-group-label">{{qns?.questionTitle}}</label>
+                                <mat-radio-group aria-labelledby="quiz-radio-group-label" class="example-radio-group">
+                                    <mat-radio-button class="quiz-radio-button" *ngFor="let q of qns.questionOption" [value]="q"
+                                        (change)="radioChange($event,qns)">
+                                        {{q}}</mat-radio-button>
+                                </mat-radio-group>
+                            </ng-container>
+                        <!-- <ng-container>
+                            <h4 class="mb-2">{{qns.questionTitle}}</h4>
+                            <div *ngFor = "let qOption of qns.questionOption; let i = index">
+                                <div class="custom-control custom-radio py-2">
+                                    <input  type="radio"  class="custom-control-input" required>
+                                    <label class="custom-control-label" for="customRadio1">{{qOption?.option1}}</label>
+                                </div>
+                                <div class="custom-control custom-radio py-2">
+                                    <input  type="radio"  class="custom-control-input" required>
+                                    <label class="custom-control-label" for="customRadio2">{{qOption?.option2}}</label>
+                                </div>
+                                <div class="custom-control custom-radio py-2">
+                                    <input  type="radio"  class="custom-control-input" required>
+                                    <label class="custom-control-label" for="customRadio3">{{qOption?.option3}}</label>
+                                </div>
+                                <div class="custom-control custom-radio py-2">
+                                    <input  type="radio"  class="custom-control-input" required>
+                                    <label class="custom-control-label" for="customRadio4">{{qOption?.option4}}</label>
+                                </div>
+                            </div>
+                        </ng-container> -->
+                        <div class="test-action-btn">
+                            <button *ngIf="i !== 0" mat-button matStepperPrevious (click)="prevStep(i)" class="btn btn-light mr-3">Back</button>
+                            <button *ngIf="!last" mat-button matStepperNext [disabled]="!form.valid" (click)="nextStep(i)" class="btn btn-profile">Next</button>
+                            <button *ngIf="last" mat-button [disabled]="!form.valid" (click)="onSubmit()" class="btn btn-success">Submit</button>
+                        </div>
+                    </mat-step>
+                </mat-horizontal-stepper>
             </form>
         </div>
-        <div *ngIf="certificatePage"class="col-lg-9 py-4 certificate-page">
+        <!-- <div *ngIf="certificatePage"class="col-lg-9 py-4 certificate-page">
             <div class="jumbotron py-4 d-flex flex-column text-center">
                 <h4 class="text-success">Congratulation! You have successfully passed the Assessment Test</h4>
                 <div class="mt-2 mb-3" style="border-top: 1px solid #cec187;"></div>
                 <img id="pdfCert" #pdfCert src="../../../assets/images/Certificate-Parikshit.jpg" class="img-fluid" alt="Responsive image">            
                 <div class="d-flex justify-content-left mt-4">
-                    <button class="btn btn-profile mr-4" (click)="downloadAsPDF">Download</button>
+                    <button class="btn btn-profile mr-4">Download</button>
                     <button class="btn btn-print mr-4">Print</button>
                     <button class="btn btn-light" (click)="onBackHome()">Back to home</button>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>  
 <app-footer></app-footer>

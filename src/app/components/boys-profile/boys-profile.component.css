@@ -10,7 +10,14 @@
 .profile-content .btn-profile.btn.disabled{
     visibility: hidden;
 }
-
+.training-cards .card{
+    width: 18rem;
+}
+.training-cards .card-text{
+    height: 72px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 .user-info .list-group-item{
     display: flex;
     align-items: baseline;
@@ -53,6 +60,9 @@
 .testPage .custom-control-input:focus~.custom-control-label::before{
     box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(254, 151, 48, .3);
 }
+::ng-deep .testPage .mat-horizontal-content-container{
+    padding: 25px 24px 24px 24px !important;
+}
 ::ng-deep .notif-fail{
     background: #e8962f !important;
 }
@@ -85,4 +95,42 @@
     background: #fdab59;
     color: white;
     border-color: #fdab59;
+}
+
+/* Next quiz css */
+::ng-deep .mat-step-header .mat-step-icon-selected, 
+::ng-deep .mat-step-header .mat-step-icon-state-done, 
+::ng-deep .mat-step-header .mat-step-icon-state-edit{
+    background-color: #21bbfb;
+    color: #ffffff;
+}
+::ng-deep .testPage #quiz-radio-group-label{font-weight: 500;}
+::ng-deep .testPage .quiz-radio-button{display: block;} 
+
+::ng-deep .testPage .mat-radio-button.mat-accent .mat-radio-inner-circle, 
+::ng-deep .testPage .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+::ng-deep .testPage .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, 
+::ng-deep .testPage .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple{
+    background-color:#003348
+}
+
+::ng-deep .testPage .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color: #003348;
+}
+.testPage .test-action-btn{
+    margin-top: 20px;
+}
+::ng-deep .testPage .mat-radio-label{
+    white-space: normal;
+}
+@media only screen and (min-width:0px) and (max-width: 766px){
+    .training-cards .card{
+        width: auto;
+        margin-bottom: 1.8rem;
+    }
+}
+@media only screen and (min-width:0px) and (max-width: 500px){
+    ::ng-deep .testPage .mat-horizontal-stepper-header-container{
+        display: none;
+    }
 }

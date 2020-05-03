@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { GirlsProfileComponent } from './components/girls-profile/girls-profile.component';
 import { BoysProfileComponent } from './components/boys-profile/boys-profile.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'Fprofile' , component: GirlsProfileComponent},
   {path: 'Mprofile' , component: BoysProfileComponent},
   {path: 'landing' , component: LandingPageComponent},
+  {path: 'admin' , component: AdminDashboardComponent},
   { path: '**', component: LandingPageComponent }
 ];
 
