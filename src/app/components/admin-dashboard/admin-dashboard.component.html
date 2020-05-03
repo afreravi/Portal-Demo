@@ -30,7 +30,8 @@
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">4,000</div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="icon-user fa-2x text-gray-300"></i>
+                                    <!-- <i class="icon-user fa-2x text-gray-300"></i> -->
+                                    <img src="../../../assets/images/students-icon.png" class="img-fluid" alt="School">            
                                 </div>
                                 </div>
                             </div>
@@ -45,7 +46,8 @@
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">490</div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="icon-user fa-2x text-gray-300"></i>
+                                    <!-- <i class="icon-user fa-2x text-gray-300"></i> -->
+                                    <img src="../../../assets/images/school-icon.png" class="img-fluid" alt="School">
                                 </div>
                                 </div>
                             </div>
@@ -56,11 +58,12 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">No. Of Girl Students</div>
+                                    <div class="text-xs font-weight-bold text-custom text-uppercase mb-1">No. Of Girl Students</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">2,200</div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="icon-user fa-2x text-gray-300"></i>
+                                    <!-- <i class="icon-user fa-2x text-gray-300"></i> -->
+                                    <img src="../../../assets/images/Girl-icon.png" class="img-fluid" alt="School">
                                 </div>
                                 </div>
                             </div>
@@ -71,11 +74,12 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">No. of Boys Student</div>
+                                    <div class="text-xs font-weight-bold text-cust-warning text-uppercase mb-1">No. of Boys Student</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">1,800</div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="icon-user fa-2x text-gray-300"></i>
+                                    <!-- <i class="icon-user fa-2x text-gray-300"></i> -->
+                                    <img src="../../../assets/images/boy-icon.png" class="img-fluid" alt="School">
                                 </div>
                                 </div>
                             </div>
@@ -114,25 +118,37 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-5">
-                        <div class="card shadow p-4">
-                            <app-bar-charts></app-bar-charts>
+                        <div class="card shadow px-4 pb-4 pt-3">
+                            <h4 class="chart-heading">Girl's Status</h4>
+                            <app-pie-charts-girls></app-pie-charts-girls>
                         </div>
                     </div>
                     <div class="col-md-6 mb-5">
-                        <div class="card shadow p-4">
+                        <div class="card shadow px-4 pb-4 pt-3">
+                            <h4 class="chart-heading">Boy's Status</h4>
                             <app-pie-charts></app-pie-charts>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 mb-5">
-                        <div class="card shadow p-4">
+                    <div class="col-md-12 mb-5">
+                        <div class="card shadow px-4 pb-4 pt-3">
+                            <h4 class="chart-heading">Number of Student's Enrolled</h4>
+                            <app-bar-charts></app-bar-charts>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7 mb-5">
+                        <div class="card shadow px-4 pb-4 pt-3">
+                            <h4 class="chart-heading">Number of Student's Enrolled</h4>
                             <app-line-charts></app-line-charts>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-5">
-                        <div class="card shadow p-4">
-                            <app-doughnut-charts></app-doughnut-charts>
+                    <div class="col-md-5 mb-5">
+                        <div class="card shadow px-4 pb-4 pt-3">
+                            <h4 class="chart-heading">School of Compliance</h4>
+                            <app-pie-charts-schools></app-pie-charts-schools>
                         </div>
                     </div>
                 </div>

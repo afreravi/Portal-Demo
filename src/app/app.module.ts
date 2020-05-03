@@ -29,6 +29,8 @@ import { ChartsModule } from 'ng2-charts';
 import { PieChartsComponent } from './components/admin-dashboard/pie-charts/pie-charts.component';
 import { LineChartsComponent } from './components/admin-dashboard/line-charts/line-charts.component';
 import { DoughnutChartsComponent } from './components/admin-dashboard/doughnut-charts/doughnut-charts.component';
+import { PieChartsGirlsComponent } from './components/admin-dashboard/pie-charts-girls/pie-charts-girls.component';
+import { PieChartsSchoolsComponent } from './components/admin-dashboard/pie-charts-schools/pie-charts-schools.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { DoughnutChartsComponent } from './components/admin-dashboard/doughnut-c
     BarChartsComponent,
     PieChartsComponent,
     LineChartsComponent,
-    DoughnutChartsComponent
+    DoughnutChartsComponent,
+    PieChartsGirlsComponent,
+    PieChartsSchoolsComponent
   ],
   entryComponents: [RetakeExamComponent],
   imports: [

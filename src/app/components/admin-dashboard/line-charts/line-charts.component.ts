@@ -11,13 +11,17 @@ import * as pluginAnnotations from 'chartjs-plugin-annotation';
 })
 export class LineChartsComponent implements OnInit {
   public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
-    { data: [180, 480, 770, 90, 1000, 270, 400], label: 'Series C', yAxisID: 'y-axis-1' }
+    { data: [257, 325, 467, 679, 556, 432, 678], label: 'Boys' },
+    { data: [113, 432, 237, 326, 458, 679, 379], label: 'Girls' },
+    { data: [370, 757, 704, 1005, 1014, 1111, 1057], label: 'Total Students', yAxisID: 'y-axis-1' }
   ];
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels: Label[] = ['September', 'October', 'November', 'December', 'January', 'February', 'March'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position: 'bottom',
+    },
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],
@@ -33,7 +37,7 @@ export class LineChartsComponent implements OnInit {
             color: 'rgba(255,0,0,0.3)',
           },
           ticks: {
-            fontColor: 'red',
+            fontColor: '#0ad2df',
           }
         }
       ]
@@ -57,29 +61,29 @@ export class LineChartsComponent implements OnInit {
     },
   };
   public lineChartColors: Color[] = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
+    { // theme header color
+      backgroundColor: 'rgba(33,186,253,0.3)',
+      borderColor: '#0ad2df',
+      pointBackgroundColor: '#0ad2df',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      pointHoverBorderColor: '#0ad2df'
     },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
+    { // orange grey
+      backgroundColor: 'rgba(255,145,3,0.2)',
+      borderColor: '#ff9103',
+      pointBackgroundColor: '#ff9103',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
+      pointHoverBorderColor: '#ff9103'
     },
-    { // red
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
+    { // magenta
+      backgroundColor: 'rgba(208,54,236,0.2)',
+      borderColor: '#d036ec',
+      pointBackgroundColor: '#d036ec',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      pointHoverBorderColor: '#d036ec'
     }
   ];
   public lineChartLegend = true;

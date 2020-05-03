@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import { Label } from 'ng2-charts'
+import { Label, Color } from 'ng2-charts'
 
 @Component({
   selector: 'app-bar-charts',
@@ -11,6 +11,10 @@ import { Label } from 'ng2-charts'
 export class BarChartsComponent implements OnInit {
   public barChartOptions: ChartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position: 'bottom',
+    },
     // We use these empty structures as placeholders for dynamic theming.
     scales: { xAxes: [{}], yAxes: [{}] },
     plugins: {
@@ -20,16 +24,23 @@ export class BarChartsComponent implements OnInit {
       }
     }
   };
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels: Label[] = ['September', 'October', 'November', 'December', 'January', 'February', 'March'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
 
   public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+    { data: [257, 325, 467, 679, 556, 432, 678], label: 'Boys' },
+    { data: [113, 432, 237, 326, 458, 679, 379], label: 'Girls' },
+    { data: [370, 757, 704, 1005, 1014, 1111, 1057], label: 'Total Students'}
   ];
 
+  public barChartColors: Color[] = [
+    { backgroundColor: '#ff9203' },
+    { backgroundColor: '#8c55ef' },
+    { backgroundColor: '#0ad2df' }
+    
+  ]
 
   constructor() { }
 

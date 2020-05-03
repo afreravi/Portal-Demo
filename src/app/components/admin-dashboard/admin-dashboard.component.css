@@ -16,6 +16,9 @@
 .text-header{
     color: #21bbfb;
 }
+.text-custom{
+    color: #0ad4e0;
+}
 .border-left-cust {
     border-left: .25rem solid #21bbfb!important;
 }
@@ -23,10 +26,13 @@
     border-left: .25rem solid #28a745!important;
 }
 .border-left-info {
-    border-left: .25rem solid #17a2b8!important;
+    border-left: .25rem solid #0ad4e0!important;
 }
 .border-left-warning {
-    border-left: .25rem solid #ffc107!important;
+    border-left: .25rem solid #ff9103!important;
+}
+.text-cust-warning{
+    color: #ff9103
 }
 
 .text-gray-300 {
@@ -50,4 +56,9 @@
 .admin-title{
     border-bottom: 1px solid #6acaf3 !important;
     background: #1fb6f5 !important;
+}
+.chart-heading{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
