@@ -23,7 +23,7 @@
     border-left: .25rem solid #21bbfb!important;
 }
 .border-left-success {
-    border-left: .25rem solid #28a745!important;
+    border-left: .25rem solid #8c55ef!important;
 }
 .border-left-info {
     border-left: .25rem solid #0ad4e0!important;
@@ -34,7 +34,18 @@
 .text-cust-warning{
     color: #ff9103
 }
-
+.bg-progress-second{
+    background: #ff9103;
+}
+.bg-progress-first{
+    background: #21bbfb;
+}
+.bg-progress-third{
+    background: #0ad4e0;
+}
+.bg-progress-fourth{
+    background: #8c55ef;
+}
 .text-gray-300 {
     color: #dddfeb!important;
 }
@@ -61,4 +72,7 @@
     text-align: center;
     font-size: 16px;
     margin-bottom: 10px;
+}
+.text-school-head{
+    color: #8c55ef;
 }

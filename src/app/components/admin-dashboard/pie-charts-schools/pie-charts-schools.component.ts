@@ -16,22 +16,21 @@ export class PieChartsSchoolsComponent implements OnInit {
       position: 'bottom',
     },
     plugins: {
-      datalabels: {
-        formatter: (value, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
-          return label;
-        },
+      labels: {
+        render: 'percentage',
+        fontColor: ['white', 'white'],
+        precision: 2
       },
-    }
+    },
   };
-  public pieChartLabels: Label[] = [['Compliant'], ['Not-Compliant']];
+  public pieChartLabels: Label[] = [['Completed'], ['Not-Completed']];
   public pieChartData: number[] = [46, 64];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [pluginDataLabels];
   public pieChartColors = [
     {
-      backgroundColor: ['#d137ed', '#09d3e1'],
+      backgroundColor: ['#8c55ef', '#0ad2df'],
     },
   ];
 
