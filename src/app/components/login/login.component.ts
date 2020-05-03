@@ -28,9 +28,9 @@ export class LoginComponent implements OnInit {
     username: 'parikshit.kathale',
     password: 'April@2020'
   }
-  demoLogin: LOGINUSER = {
-    username: 'demo',
-    password: 'demo'
+  adminLogin: LOGINUSER = {
+    username: 'admin',
+    password: 'admin'
   }
 
   constructor(private userDetails: UsersDetailsService,  private router: Router) { }
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     this.userDetails.setLoginSuccess(this.userLogin)
     // console.log(this.userDetails.setLoginSuccess(this.userLogin));
 
+    console.log(this.userLogin)
   }
 
   // loggedIn(){
@@ -66,8 +67,8 @@ export class LoginComponent implements OnInit {
       this.userLogin = true;
       break;
 
-      case (this.demoLogin.username && this.demoLogin.password):
-      this.router.navigate(['home']);
+      case (this.adminLogin.username && this.adminLogin.password):
+      this.router.navigate(['admin']);
       this.userLogin = true;
       break;
 

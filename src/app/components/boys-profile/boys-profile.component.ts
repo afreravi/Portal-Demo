@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { DatasourceService } from "src/app/services/datasource.service";
 import { QUIZ } from "src/db-data"
 import { quizList } from "src/app/models/constants"
-import {NgForm} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import { RetakeExamComponent } from "../retake-exam/retake-exam.component"
+import { FormControl,FormGroup, Validators,FormArray } from '@angular/forms';
+import { MatRadioChange } from '@angular/material';
 
 @Component({
   selector: 'app-boys-profile',
@@ -25,69 +26,40 @@ export class BoysProfileComponent implements OnInit {
   submitEnabled:boolean = false;
   isAttempt: Array<string> = [];
   selectedAns: Array<string> = [];
-  correctAns: Array<string> = ["customRadio1", "customRadio5","customRadio9","customRadio13","customRadio17", "customRadio21","customRadio25","customRadio29","customRadio33","customRadio37"];
+  correctAns: Array<any>;
+  rightAns:Array<string>;
   isPassed: boolean;
   isFirstVideo:boolean = true;
   isSecondVideo:boolean = false;
-  certificatePage: boolean = false;
+  checkedAns:string;
+  // certificatePage: boolean = false;
   quiz:quizList[] =[];
   quizData = QUIZ;
+  activedQuestion:number = 0;
+  tickedAns: string;
+  isLinear = false;
+  formGroup : FormGroup;
+  //form: FormArray;
+  questions:quizList[] = this.datasource.quiz
+  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+  finalArray:any[] = []
 
   constructor(
     private _snackBar: MatSnackBar, 
     private router: Router, 
     private datasource: DatasourceService,
-    public dialog: MatDialog ) { }
-
+    public dialog: MatDialog) {
+    }
+    
+    
   ngOnInit() {
-    this.quiz.push(
-      {
-        "id": "list-q1",
-        "questionNo": "Question 1",
-        "questionTitle": "What is CSS stands for...",
-        "questionAns": [
-          {
-            "option1": "Computer Styled Sections",
-            "option2": "Cascading Style Sheets",
-            "option3": "Crazy Solid Shapes",
-            "option4": "None of the above",
-            "correctAns": "Cascading Style Sheets"
-          }
-        ]
-      },
-      {
-        "id": "list-q2",
-        "questionNo": "Question 2",
-        "questionTitle": "Fake emails, text messages and websites created to look like they’re from authentic companies are:",
-        "questionAns": [
-          {
-            "option1": "Phishing",
-            "option2": "Spyware",
-            "option3": "Pharming",
-            "option4": "None of the above",
-            "correctAns": "Phishing"
-          }
-        ]
-      },
-      {
-        "id": "list-q3",
-        "questionNo": "Question 3",
-        "questionTitle": "What is the definition of Clickjacking?",
-        "questionAns": [
-          {
-            "option1": "Clicking all over the page",
-            "option2": "Someone stealing your clicker",
-            "option3": "Catchy headlines that try to get you to paste a link in your browser",
-            "option4": "None of the above",
-            "correctAns": "Catchy headlines that try to get you to paste a link in your browser"
-          }
-        ]
-      }
-    );
+    
   }
 
+  form = new FormArray(this.questions.map( ()=> new FormGroup({})))
   
-  onEnroll(e){
+
+    onEnroll(e){
     this.isEnrolled = false;
     this.enrolledCourse = e.target.name;
     this._snackBar.open('Enrolled for selected course', '', {duration: 2000, verticalPosition: 'top', horizontalPosition: 'center'});;setTimeout(() => {
@@ -124,20 +96,48 @@ export class BoysProfileComponent implements OnInit {
     this.startCourse = false;
     this.courseAssessment = false;
   }
-  enableNextBtn(e){
-    if(e.target.checked){
-      this.isAttempt.push(e.target.name)
-      this.selectedAns.push(e.target.id)
+
+  radioChange(event: MatRadioChange, data) {
+    var obj = this.questions.filter(x => x.id == data.id)[0];
+    if(obj.correctAns = event.value){
+      this.selectedAns.push(event.value)
     }
+    
+    
+    // console.log(this.finalArray.some(x => x.id == data.id))
+    // if (!this.finalArray.some(x => x.id == data.id)) {
+    //   this.finalArray.push(obj);
+    // }
   }
+  nextStep(q){
+    this.activedQuestion = q + 1;
+  }
+  prevStep(q) {
+    this.activedQuestion = q - 1;
+  }
+  // enableNextBtn(e){
+  //   if(e.target.checked){
+  //     this.isAttempt.push(e.target.name)
+  //     this.selectedAns.push(e.target.id)
+  //   }
+  // }
   onSubmit(){
-    this.isPassed = (this.selectedAns.length == this.correctAns.length) && this.selectedAns.every((element, index) => {
-      return element === this.correctAns[index]; 
+    this.rightAns = this.datasource.rightAns
+    this.isPassed = (this.selectedAns.length == this.rightAns.length) && this.selectedAns.every((element, index) => {
+      return element === this.datasource.rightAns[index]; 
   });
       if(this.isPassed){
         this._snackBar.open('Congratulation! You passed the Assessment', '', {duration: 2000, verticalPosition: 'top', horizontalPosition: 'center'});;setTimeout(() => {
           this.testPage = false;
-          this.certificatePage = true;
+          this.testPage = false;
+          this.courseAssessment = false;
+          this.startCourse = true;
+          this.isAttempt = [];
+          this.startCourse = false;
+          this.isProfile = true;
+          this.isStart = false;
+          this.isEnrolled = true;
+          this.selectedAns = [];
         }, 3000);
       } else {
         const dialogRef = this.dialog.open(RetakeExamComponent, {
@@ -148,7 +148,7 @@ export class BoysProfileComponent implements OnInit {
           // console.log('The dialog was closed');
         }); 
         setTimeout(() => {
-          this.certificatePage =false;
+          // this.certificatePage =false;
           this.testPage = false;
           this.courseAssessment = false;
           this.startCourse = true;
@@ -156,13 +156,15 @@ export class BoysProfileComponent implements OnInit {
           this.startCourse = false;
           this.isProfile = true;
           this.isStart = true;
+          this.isEnrolled = false;
+          this.selectedAns = [];
         }, 3000);
   
       }
   }
   
   onBackHome(){
-    this.certificatePage =false;
+    // this.certificatePage =false;
     this.testPage = false;
     this.courseAssessment = false;
     this.isAttempt = [];

@@ -20,6 +20,16 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { RetakeExamComponent } from './components/retake-exam/retake-exam.component';
+import { BarChartsComponent } from './components/admin-dashboard/bar-charts/bar-charts.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatIconModule } from '@angular/material';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { ChartsModule } from 'ng2-charts';
+import { PieChartsComponent } from './components/admin-dashboard/pie-charts/pie-charts.component';
+import { LineChartsComponent } from './components/admin-dashboard/line-charts/line-charts.component';
+import { DoughnutChartsComponent } from './components/admin-dashboard/doughnut-charts/doughnut-charts.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +42,12 @@ import { RetakeExamComponent } from './components/retake-exam/retake-exam.compon
     GirlsProfileComponent,
     BoysProfileComponent,
     LandingPageComponent,
-    RetakeExamComponent
+    RetakeExamComponent,
+    AdminDashboardComponent,
+    BarChartsComponent,
+    PieChartsComponent,
+    LineChartsComponent,
+    DoughnutChartsComponent
   ],
   entryComponents: [RetakeExamComponent],
   imports: [
@@ -46,7 +61,11 @@ import { RetakeExamComponent } from './components/retake-exam/retake-exam.compon
     MatSelectModule,
     MatSnackBarModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatStepperModule,
+    MatRadioModule,
+    MatIconModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
