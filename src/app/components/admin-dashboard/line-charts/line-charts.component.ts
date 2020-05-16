@@ -24,17 +24,24 @@ export class LineChartsComponent implements OnInit {
     },
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
-      xAxes: [{}],
+      xAxes: [{
+        gridLines: {
+          color: '#fff',
+        }
+      }],
       yAxes: [
         {
           id: 'y-axis-0',
           position: 'left',
+          // gridLines: {
+          //   color: '#fff',
+          // }
         },
         {
           id: 'y-axis-1',
           position: 'right',
           gridLines: {
-            color: 'rgba(255,0,0,0.3)',
+            color: '#fff',
           },
           ticks: {
             fontColor: '#0ad2df',

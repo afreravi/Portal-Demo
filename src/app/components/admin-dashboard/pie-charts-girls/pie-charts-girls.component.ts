@@ -16,15 +16,14 @@ public pieChartOptions: ChartOptions = {
     position: 'bottom',
   },
   plugins: {
-    datalabels: {
-      formatter: (value, ctx) => {
-        const label = ctx.chart.data.labels[ctx.dataIndex];
-        return label;
-      },
+    labels: {
+      render: 'percentage',
+      fontColor: ['white', 'white'],
+      precision: 2
     },
-  }
+  },
 };
-public pieChartLabels: Label[] = [['Enrolled'], ['Not-Enrolled']];
+public pieChartLabels: Label[] = [['Completed'], ['Not-Completed']];
 public pieChartData: number[] = [2137, 2363];
 public pieChartType: ChartType = 'pie';
 public pieChartLegend = true;

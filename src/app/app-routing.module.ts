@@ -8,6 +8,7 @@ import { GirlsProfileComponent } from './components/girls-profile/girls-profile.
 import { BoysProfileComponent } from './components/boys-profile/boys-profile.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { TriviaComponent } from './components/trivia/trivia.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'Mprofile' , component: BoysProfileComponent},
   {path: 'landing' , component: LandingPageComponent},
   {path: 'admin' , component: AdminDashboardComponent},
+  {path: 'trivia' , component: TriviaComponent},
   { path: '**', component: LandingPageComponent }
 ];
 

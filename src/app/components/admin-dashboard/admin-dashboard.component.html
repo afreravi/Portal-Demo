@@ -13,9 +13,12 @@
         <div class="col-lg-2 pb-4 user-info px-0">
             <nav class="list-group">
             <a class="list-group-item py-4 admin-title"><i class="icon-tag_faces fa-2x"></i><span>Admin Panel</span></a>
-            <a class="list-group-item"><i class="icon-personal_video"></i><span>Link1</span></a>
-            <a class="list-group-item"><i class="icon-my_location"></i><span>Link2</span></a>
-            <a class="list-group-item"><i class="icon-work"></i><span>Link3</span></a>
+            <a class="list-group-item"><i class="icon-personal_video"></i><span>Courses</span></a>
+            <a class="list-group-item"><i class="icon-notifications"></i><span>Notice</span></a>
+            <a class="list-group-item"><i class="icon-message"></i><span>Message</span></a>
+            <a class="list-group-item"><i class="icon-map-o"></i><span>Map</span></a>
+            <a class="list-group-item"><i class="icon-settings"></i><span>Test Settings</span></a>
+            <a class="list-group-item"><i class="icon-supervisor_account"></i><span>Account</span></a>
             </nav>
         </div>
         <div class="col-lg-10 py-4">
@@ -27,7 +30,7 @@
                                 <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-header text-uppercase mb-1">Total No of Students</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">4,000</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">10,000</div>
                                 </div>
                                 <div class="col-auto">
                                     <!-- <i class="icon-user fa-2x text-gray-300"></i> -->
@@ -42,8 +45,8 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total No of schools</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">490</div>
+                                    <div class="text-xs font-weight-bold text-school-head text-uppercase mb-1">Total No of schools</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
                                 </div>
                                 <div class="col-auto">
                                     <!-- <i class="icon-user fa-2x text-gray-300"></i> -->
@@ -59,7 +62,7 @@
                                 <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-custom text-uppercase mb-1">No. Of Girl Students</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">2,200</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">4,500</div>
                                 </div>
                                 <div class="col-auto">
                                     <!-- <i class="icon-user fa-2x text-gray-300"></i> -->
@@ -75,7 +78,7 @@
                                 <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-cust-warning text-uppercase mb-1">No. of Boys Student</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">1,800</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">5,500</div>
                                 </div>
                                 <div class="col-auto">
                                     <!-- <i class="icon-user fa-2x text-gray-300"></i> -->
@@ -117,38 +120,69 @@
                     </div>    -->
                 </div>
                 <div class="row">
-                    <div class="col-md-6 mb-5">
+                    <div class="col-md-4 mb-5">
                         <div class="card shadow px-4 pb-4 pt-3">
-                            <h4 class="chart-heading">Girl's Status</h4>
+                            <h4 class="chart-heading">Girl's Completion Status</h4>
                             <app-pie-charts-girls></app-pie-charts-girls>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-5">
+                    <div class="col-md-4 mb-5">
                         <div class="card shadow px-4 pb-4 pt-3">
-                            <h4 class="chart-heading">Boy's Status</h4>
+                            <h4 class="chart-heading">Boy's Completion Status</h4>
                             <app-pie-charts></app-pie-charts>
                         </div>
+                    </div>
+                    <div class="col-md-4 mb-5">
+                        <div class="card shadow px-4 pb-4 pt-3">
+                            <h4 class="chart-heading">School Completion</h4>
+                            <app-pie-charts-schools></app-pie-charts-schools>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 mb-5">
+                        <div class="card shadow px-4 pb-4 pt-3">
+                            <h4 class="chart-heading">Number of Student's Enrolled</h4>
+                            <app-bar-charts></app-bar-charts>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-5">
+
+                        <!-- Project Card Example -->
+                        <div class="card shadow px-4 pb-4 pt-3">
+                            <h4 class="chart-heading">Enrollment Pending Status</h4>
+                            <div class="card-body">
+                            <h4 class="small font-weight-bold">Total No. Pending Students<span class="float-right">3,982</span></h4>
+                            <div class="progress mb-4">
+                                <div class="progress-bar bg-progress-first" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h4 class="small font-weight-bold">Boy's Pending <span class="float-right">2,106</span></h4>
+                            <div class="progress mb-4">
+                                <div class="progress-bar bg-progress-second" role="progressbar" style="width: 38%" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h4 class="small font-weight-bold">Girl's Pending <span class="float-right">1,876</span></h4>
+                            <div class="progress mb-4">
+                                <div class="progress-bar bg-progress-third" role="progressbar" style="width: 42%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h4 class="small font-weight-bold">School's Pending <span class="float-right">64</span></h4>
+                            <div class="progress mb-4">
+                                <div class="progress-bar bg-progress-fourth" role="progressbar" style="width: 64%" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <!-- <h4 class="small font-weight-bold">Total No. Students<span class="float-right">10,000</span></h4>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div> -->
+                            </div>
+                        </div>
+            
+                        
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 mb-5">
                         <div class="card shadow px-4 pb-4 pt-3">
                             <h4 class="chart-heading">Number of Student's Enrolled</h4>
-                            <app-bar-charts></app-bar-charts>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-7 mb-5">
-                        <div class="card shadow px-4 pb-4 pt-3">
-                            <h4 class="chart-heading">Number of Student's Enrolled</h4>
                             <app-line-charts></app-line-charts>
-                        </div>
-                    </div>
-                    <div class="col-md-5 mb-5">
-                        <div class="card shadow px-4 pb-4 pt-3">
-                            <h4 class="chart-heading">School of Compliance</h4>
-                            <app-pie-charts-schools></app-pie-charts-schools>
                         </div>
                     </div>
                 </div>

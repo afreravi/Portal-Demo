@@ -31,6 +31,7 @@ import { LineChartsComponent } from './components/admin-dashboard/line-charts/li
 import { DoughnutChartsComponent } from './components/admin-dashboard/doughnut-charts/doughnut-charts.component';
 import { PieChartsGirlsComponent } from './components/admin-dashboard/pie-charts-girls/pie-charts-girls.component';
 import { PieChartsSchoolsComponent } from './components/admin-dashboard/pie-charts-schools/pie-charts-schools.component';
+import { TriviaComponent } from './components/trivia/trivia.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { PieChartsSchoolsComponent } from './components/admin-dashboard/pie-char
     LineChartsComponent,
     DoughnutChartsComponent,
     PieChartsGirlsComponent,
-    PieChartsSchoolsComponent
+    PieChartsSchoolsComponent,
+    TriviaComponent
   ],
   entryComponents: [RetakeExamComponent],
   imports: [

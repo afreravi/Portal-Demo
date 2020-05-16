@@ -32,7 +32,7 @@ export class BoysProfileComponent implements OnInit {
   isFirstVideo:boolean = true;
   isSecondVideo:boolean = false;
   checkedAns:string;
-  // certificatePage: boolean = false;
+  certificatePage: boolean = false;
   quiz:quizList[] =[];
   quizData = QUIZ;
   activedQuestion:number = 0;
@@ -128,15 +128,15 @@ export class BoysProfileComponent implements OnInit {
   });
       if(this.isPassed){
         this._snackBar.open('Congratulation! You passed the Assessment', '', {duration: 2000, verticalPosition: 'top', horizontalPosition: 'center'});;setTimeout(() => {
-          this.testPage = false;
+          this.certificatePage = true;
           this.testPage = false;
           this.courseAssessment = false;
-          this.startCourse = true;
+          this.startCourse = false;
           this.isAttempt = [];
           this.startCourse = false;
-          this.isProfile = true;
+          this.isProfile = false;
           this.isStart = false;
-          this.isEnrolled = true;
+          this.isEnrolled = false;
           this.selectedAns = [];
         }, 3000);
       } else {
@@ -148,7 +148,7 @@ export class BoysProfileComponent implements OnInit {
           // console.log('The dialog was closed');
         }); 
         setTimeout(() => {
-          // this.certificatePage =false;
+          this.certificatePage =false;
           this.testPage = false;
           this.courseAssessment = false;
           this.startCourse = true;
@@ -164,11 +164,13 @@ export class BoysProfileComponent implements OnInit {
   }
   
   onBackHome(){
-    // this.certificatePage =false;
+    this.certificatePage =false;
     this.testPage = false;
     this.courseAssessment = false;
     this.isAttempt = [];
     this.startCourse = false;
     this.isProfile = true;
+    this.isStart = false;
+    this.isEnrolled = true;
   }
 }
