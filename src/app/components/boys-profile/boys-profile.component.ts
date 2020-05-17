@@ -8,6 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { RetakeExamComponent } from "../retake-exam/retake-exam.component"
 import { FormControl,FormGroup, Validators,FormArray } from '@angular/forms';
 import { MatRadioChange } from '@angular/material';
+import { UsersDetailsService } from '../../services/users-details.service'
 
 @Component({
   selector: 'app-boys-profile',
@@ -48,12 +49,13 @@ export class BoysProfileComponent implements OnInit {
     private _snackBar: MatSnackBar, 
     private router: Router, 
     private datasource: DatasourceService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    private userDetails: UsersDetailsService) {
     }
     
     
   ngOnInit() {
-    
+    this.userDetails.setLoginSuccess(true);
   }
 
   form = new FormArray(this.questions.map( ()=> new FormGroup({})))

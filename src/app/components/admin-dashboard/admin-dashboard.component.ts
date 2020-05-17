@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersDetailsService } from '../../services/users-details.service'
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userDetails: UsersDetailsService) { }
 
   ngOnInit() {
+    this.userDetails.setLoginSuccess(true);
   }
 
 }
