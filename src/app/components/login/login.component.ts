@@ -70,6 +70,7 @@ export class LoginComponent implements OnInit {
       case (this.adminLogin.username && this.adminLogin.password):
       this.router.navigate(['admin']);
       this.userLogin = true;
+      this.userDetails.setLoginSuccess(this.userLogin)
       break;
 
       default:
